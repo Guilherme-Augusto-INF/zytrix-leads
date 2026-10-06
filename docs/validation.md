@@ -44,6 +44,16 @@ Precision not measured: no definitive absence-of-site ground truth, no false-pos
 - Live Geoapify/Tavily key/account activation, precise external quotas and actual billed-usage reconciliation.
 - Browser E2E, mobile/desktop visual QA, keyboard focus behavior, MapLibre rendering/tiles and WebMCP execution: permitted control-browser skill unavailable; supervised preview not reachable from shell. Code implemented, browser behavior not certified.
 - Full UI en/es, full offline geographic autocomplete dataset, automatic website technical audit, AI/objection/package agent and notifications while panel closed: future.
-- Independent GitHub repository/PR: GitHub metadata returned 404 for Guilherme-Augusto-INF/zytrix-leads; installed connector exposes no repository-create action and no CLI credential exists. Site source is separately versioned privately.
+- GitHub source publication: PASS. Repository Guilherme-Augusto-INF/zytrix-leads was subsequently created and 138 files imported through merged PR #1; main commit 9aa9a0c5168447d89bcf1617aca3540b289d812b. Site source remains separately versioned privately.
 - Production functional smoke test and auth/API/browser calls must be recorded separately from successful deployment status. A successful publish status proves publication, not every external API function.
 - Complete V1 Definition of Done: NOT satisfied until live Brazilian discovery, browser checks and missing integrations are validated. This is a published initial implementation, not a certified production-complete V1.
+
+## Mobile PWA — 2026-10-06
+
+Implemented: standalone manifest, PNG 192/512 icons, maskable and Apple icons, installation instructions/native prompt when supported, mobile bottom navigation, native dialog menu, cards initially on small screens, safe areas, 44px touch targets, 16px form text, table scrolling, full-width details and offline notice. No extra paid service activated.
+
+Privacy /devil: public-asset allowlist only; gateway login HTML cannot enter offline cache; API/RSC/auth/external/map requests and writes bypass service worker; online pages never cached; HTTP auth denials never replaced by offline view; no queued mutations, automatic messages or background notifications. Old caches are cleaned only under this app's prefix. Mobile navigation uses native modal focus behavior, and zoom remains enabled.
+
+Validation: 15 service-worker/manifest/icon behavior checks, 22 domain checks, 31 built Worker/D1 integration checks (including rendered PWA metadata) and 5 optional-provider checks; TypeScript, targeted ESLint, diff check and build. These are automated isolated checks, not real-phone installation certification.
+
+NOT VERIFIED: Android/iOS installation and service-worker registration through production authentication gateway; actual standalone login session; mobile visual QA/touch/keyboard; real offline device transitions. The Cloudflare account migration and Sites deletion are not part of this PWA change and remain pending. Keep current private hosting until replacement is validated.

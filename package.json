@@ -13,7 +13,8 @@
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
-    "test:integration": "node tests/api-e2e.mjs && node tests/optional-providers.mjs"
+    "test:integration": "node tests/api-e2e.mjs && node tests/optional-providers.mjs",
+    "test:mobile": "node tests/mobile-pwa.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
