@@ -1,6 +1,7 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import {Download,WifiOff,X} from 'lucide-react';
+import release from '@/public/downloads/android-release.json';
 
 type InstallEvent=Event&{prompt:()=>Promise<void>;userChoice:Promise<{outcome:string}>};
 export default function PwaClient(){
@@ -27,6 +28,7 @@ export default function PwaClient(){
   return <>
     {offline&&<div className="alert offline-banner" role="status"><WifiOff size={20}/><span>Sem conexão. Consultas e alterações precisam de internet. Nenhuma alteração será enviada automaticamente.</span></div>}
     {!installed&&<section className="install-strip" aria-label="Instalar aplicação"><div><b>Zytrix no seu celular</b><small>Acesso pela tela inicial. Sua conta continua protegida.</small></div><button disabled={installing||offline} onClick={()=>void requestInstall()}><Download size={17}/>{canInstall?'Instalar app':'Como instalar'}</button></section>}
+    <section className="install-strip android-download" aria-label="Download do aplicativo Android"><div><b>Aplicativo Android</b><small>APK {release.version} · Android {release.minAndroid}+ · {Math.ceil(release.bytes/1024)} KB · acesso online</small><a href="/download">Como instalar e verificar o arquivo</a></div><a className="button primary" href={`/downloads/${release.filename}`} download={release.filename}><Download size={17}/>Baixar APK</a></section>
     {message&&<p className="muted" role="status">{message}</p>}
     <dialog className="install-help" ref={help} aria-labelledby="install-title"><div className="mobile-menu-head"><h2 id="install-title">Instalar Zytrix Leads</h2><button aria-label="Fechar instruções" onClick={()=>help.current?.close()}><X/></button></div><p>Abra o endereço no navegador do celular e entre com a sua conta.</p><ol><li><b>Android (Chrome):</b> menu ⋮ → Adicionar à tela inicial → Instalar, quando disponível.</li><li><b>iPhone (Safari):</b> Compartilhar → Adicionar à Tela de Início → Adicionar.</li></ol><p>Se o botão não aparecer, use o menu do navegador. Navegadores internos de redes sociais podem não permitir instalação.</p><p className="muted">A busca e o salvamento exigem internet. Os avisos de agenda funcionam com o app aberto. Leads e mensagens não são armazenados no cache offline.</p><button className="primary" onClick={()=>help.current?.close()}>Entendi</button></dialog>
   </>;

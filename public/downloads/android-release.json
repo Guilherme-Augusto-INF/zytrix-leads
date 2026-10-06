@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "versionCode": 1,
+  "package": "com.zytrix.leads",
+  "minAndroid": "6.0",
+  "filename": "zytrix-leads-1.0.0.apk",
+  "bytes": 16854,
+  "sha256": "2d6f560cac5b411480c3021970a0de966b5919d05b0430bf269ce953f0284aed"
+}
