@@ -57,3 +57,13 @@ Privacy /devil: public-asset allowlist only; gateway login HTML cannot enter off
 Validation: 15 service-worker/manifest/icon behavior checks, 22 domain checks, 31 built Worker/D1 integration checks (including rendered PWA metadata) and 5 optional-provider checks; TypeScript, targeted ESLint, diff check and build. These are automated isolated checks, not real-phone installation certification.
 
 NOT VERIFIED: Android/iOS installation and service-worker registration through production authentication gateway; actual standalone login session; mobile visual QA/touch/keyboard; real offline device transitions. The Cloudflare account migration and Sites deletion are not part of this PWA change and remain pending. Keep current private hosting until replacement is validated.
+
+## Android APK — 2026-10-06
+
+Signed APK 1.0.0 generated, package com.zytrix.leads, min API23/Android6, target API35. Native launcher uses browser Custom Tabs with browser fallback; existing PWA/online backend is reused. This is an online companion, not a fully native/offline CRM. URL is fixed in APK; a hosting migration requires rebuilding. Login stays in the browser; no credentials/API keys/lead cache in the APK, no sensitive permissions.
+
+PASS: nine APK checks (compiled manifest/resources/DEX, package/SDK/launcher, no permissions/debuggable flag, no WebView, fixed HTTPS URL, no secret files, SHA256/size, v1/v2/v3 signatures, alignment, exact signed APK in website build). TypeScript, targeted ESLint and build passed. Worker/D1 regression checks and PWA privacy checks repeated, including the new /download page smoke test. Android SDK downloads validated against official repository checksums; compiler verified against publisher artifact checksum.
+
+/devil: no arbitrary deep links or JavaScript bridge; login uses browser session instead of embedded WebView; fallback for missing browser; APK download is never cached by service worker; signing key/password excluded from Git/public and preserved privately for future updates. API quotas, private access and manual-contact rules preserved.
+
+NOT VERIFIED: real-device installation, Custom Tabs/default-browser behavior, standalone login, Android device/region sideload restrictions and actual touch UI. No emulator/device available. No Play Store publishing, paid registration, automatic messaging or background notifications.

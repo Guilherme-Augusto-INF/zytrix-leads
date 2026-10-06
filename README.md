@@ -21,3 +21,7 @@ V1 limitations: network autocomplete not enabled; full geographic dataset not im
 Open the published URL in Android Chrome or iPhone Safari, sign in, and use “Como instalar” (or the browser menu / Share → Add to Home Screen). HTTPS and browser support are required. The site includes a standalone manifest, PNG icons, touch-friendly navigation and safe areas. `pnpm test:mobile` exercises the service-worker privacy boundaries.
 
 Offline cache contains only a public reconnect notice and icons. No lead, message, API response, authenticated HTML or map tile is cached. No offline write queue, push notifications or APK. Search and saving need internet; reminders require the panel open. Installation on real Android/iOS devices remains unverified. Sites authentication/gateway may affect installation and must be checked on the device before migration or deletion.
+
+## APK Android
+
+Signed online companion APK is available at `/download` and in `public/downloads/`. Opens the mobile workspace in a browser Custom Tab (regular browser fallback) without embedding credentials or API keys. Android 6+, internet and browser required; no sensitive permissions. Real-device installation/login is not yet verified. Source and build instructions: [android/README.md](android/README.md). Signing backup stays private outside Git; never publish it.
