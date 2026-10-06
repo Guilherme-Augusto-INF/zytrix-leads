@@ -15,3 +15,9 @@ Production must remain behind owner-private Sites authentication. APIs require g
 Architecture, official source comparison, exclusions and limitations: [docs/architecture.md](docs/architecture.md). Test/validation evidence: [docs/validation.md](docs/validation.md).
 
 V1 limitations: network autocomplete not enabled; full geographic dataset not imported; OSM search is radius sample (may include neighboring cities); broad country/region queries need Geoapify; website technical audit and LLM deferred; reminders need panel open; exact free provider account quotas/phone correctness and precision unmeasured. Interface starts pt-BR; outreach languages supported, full UI en/es future. History/dashboard return bounded records and explicitly report truncation.
+
+## Mobile / PWA
+
+Open the published URL in Android Chrome or iPhone Safari, sign in, and use “Como instalar” (or the browser menu / Share → Add to Home Screen). HTTPS and browser support are required. The site includes a standalone manifest, PNG icons, touch-friendly navigation and safe areas. `pnpm test:mobile` exercises the service-worker privacy boundaries.
+
+Offline cache contains only a public reconnect notice and icons. No lead, message, API response, authenticated HTML or map tile is cached. No offline write queue, push notifications or APK. Search and saving need internet; reminders require the panel open. Installation on real Android/iOS devices remains unverified. Sites authentication/gateway may affect installation and must be checked on the device before migration or deletion.
